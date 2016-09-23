@@ -43,4 +43,3 @@ namespace BestRestaurants
     public static string ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon;Integrated Security=SSPI;";
   }
 }
-Contact GitHub

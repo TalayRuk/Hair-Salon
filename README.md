@@ -13,10 +13,11 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 
 | Behavior     | Input Example  |Output Example  |
 | ------------- |:-------------:| -----:|
-|if the two are the same, no one wins | rock v rock | "DRAW" |
-| if the two are different, the winner is displayed | Rock v. Scissors | Rock wins |
-| if the two are different, the winner is displayed | Rock v. Paper | Paper wins |
-| if the two are different, the winner is displayed | Paper v. Scissors | Scissors wins |
+|GetAll() return all row present in database |2 client instances | list containing 2 clients
+|GetAll().Count return Number of rows in database | no input | database empty
+|Override bool Equal function return 2 same inputs with different Id | 2 same client instances | list containing 2 client's names 
+|Save() return input save to the list | new client instance | list containing new client 
+|
 
 ## Setup/Installation Requirements
 

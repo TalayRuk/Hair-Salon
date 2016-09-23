@@ -21,7 +21,6 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 ## Setup/Installation Requirements
 
 #### In SQLCMD:
----
 * >CREATE DATABASE hair_salon;
 * >GO
 * >USE hair_salon;
@@ -29,7 +28,7 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 * >CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));
 * >CREATE TABLE clients (id INT IDENTITY(1,1), client_name VARCHAR(255));
 * >GO
----
+
 ## Support and contact details
 
 Please contact the authors if you have any questions or comments.

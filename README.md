@@ -118,6 +118,10 @@ namespace HairSalon
 }
 -In our ClientsTest constructor, we set DBConfiguration.ConnectionString to our hair_salon_test database, which overrides the DBConfiguration.ConnectionString we set in Startup.cs.
 
+1. Now let's write our first spec, which will test that we have an empty database to start testing
+2. testing the static Task.GetAll() method. 
+   *Here we will want to pull out all of the tasks from the database into a list. Since we haven't saved anything yet, the list will be empty.
+
 SQLCMD -S "(localdb)\mssqllocaldb" -d hair_style
 
 * -add stylist database table

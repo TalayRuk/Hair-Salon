@@ -70,3 +70,18 @@ C#, Nancy, Razor, Xunit, Database and cshtml.
 Copyright (c) 2016 **_Vichitra Pool_**
 
 This software is licensed under the MIT license.
+
+Todo list 
+
+SQLCMD -S "(localdb)\mssqllocaldb" -d hair_style
+
+* -add stylist database table
+* -backup & restore hair_salon_tests
+* -add stylist.cs 
+* -add stylistTests.cs 
+* -add foreign key 
+     1> ALTER TABLE tasks ADD stylist_id INT;
+     2> GO
+      *b/c 1 stylist can have many clients 
+       -one to many 
+* -add 

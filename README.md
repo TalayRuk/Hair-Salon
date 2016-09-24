@@ -71,7 +71,29 @@ Copyright (c) 2016 **_Vichitra Pool_**
 
 This software is licensed under the MIT license.
 
-Todo list 
+Steps
+
+Before we start writing our code, we'll need to open SQLCMD, create a database named todo, and make a table called tasks with a primary key id and a varchar column called description:
+
+SQLCMD -S "(localdb)\mssqllocaldb"
+
+1> CREATE DATABASE hair_salon;
+2> GO
+1> USE hair_salon;
+2> GO
+1> CREATE TABLE clients
+2> (
+3>   id INT IDENTITY (1,1),
+4>   c_name VARCHAR(255), c_phone INT
+5> );
+6> GO
+
+Create project files .. Db class in database.cs 
+-then create backup from hair_style database
+-create restore hair_style_test database
+
+Now that we've configured our application to work with a database and run tests on it, 
+Start on the actual app. 
 
 SQLCMD -S "(localdb)\mssqllocaldb" -d hair_style
 

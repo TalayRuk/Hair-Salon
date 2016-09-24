@@ -1,6 +1,6 @@
 # _HAIR SALON_
 
-#### _Create an app for a hair salon._
+#### _Create a web app for a hair salon using database to store list of clients and hair stylists._
 
 #### By _** Vichitra Pool **_
 
@@ -13,22 +13,49 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 
 | Behavior     | Input Example  |Output Example  |
 | ------------- |:-------------:| -----:|
-|GetAll() return all row present in database |2 client instances | list containing 2 clients
+|GetAll() return all rows present in database |2 client instances | list containing 2 clients
 |GetAll().Count return Number of rows in database | no input | database empty
-|Override bool Equal function return 2 same inputs with different Id | 2 same client instances | list containing 2 client's names 
-|Save() return input save to the list | new client instance | list containing new client 
-|
+|Override bool Equal function return 2 same inputs with different Id | 2 same client instances | list containing 2 client's names
+|Save() return input save to the list | new client instance | list containing new client
+|DeleteAll() clear out all rows in database | 2 client instances | none
+|Find() return specific row from database | Joe | found Joe
+|DeleteOne() clear 1 specific row in database | Joe | none
+|*One-to-many relationship set up
+|Test Stylist **Spec 
+|*CRUD functionality for each class been built in Nancy
+|*RESTful routes used in Nancy
 
-## Setup/Installation Requirements
 
-#### In SQLCMD:
-* >CREATE DATABASE hair_salon;
-* >GO
-* >USE hair_salon;
-* >GO
-* >CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255));
-* >CREATE TABLE clients (id INT IDENTITY(1,1), client_name VARCHAR(255));
-* >GO
+## Setup/Installation
+#### Files can be cloned from https://github.com/TalayRuk/Hair-Salon.git and run in a browser (requires a server environment).
+
+#### Using Mono in the root directory, type the following at the command prompt:
+
+##### To install dependencies:
+
+\>dnu restore
+
+#### To use the database, in SQLCMD:
+
+\>CREATE DATABASE hair_salon;
+
+\>GO
+
+\>USE hair_salon;
+
+\>GO
+
+\>CREATE TABLE stylists (id INT IDENTITY (1,1), first_name VARCHAR(255), last_name VARCHAR(255), expertise VARCHAR(255));
+
+\>CREATE TABLE clients (id INT IDENTITY (1,1), first_name VARCHAR(255), last_name VARCHAR(255), stylist_id INT);
+
+\>GO
+
+#### To run the local server:
+
+\>dnx kestrel
+
+#### Copy: http://localhost:5004 in your browser.
 
 ## Support and contact details
 

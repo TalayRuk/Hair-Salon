@@ -94,6 +94,29 @@ Create project files .. Db class in database.cs
 
 Now that we've configured our application to work with a database and run tests on it, 
 Start on the actual app. 
+set up our test file 
+using Xunit;
+using System.Collections.Generic; the 
+using System;
+using System.Data;
+using System.Data.SqlClient;
+
+namespace HairSalon
+{
+  public class ClientsTest : IDisposable
+  {
+    public ClientsTest()
+    {
+      DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test.   Cobb.  ;Integrated Security=SSPI;";
+    }
+
+    public void Dispose()
+    {
+      Task.DeleteAll();
+    }
+  }
+}
+-In our ClientsTest constructor, we set DBConfiguration.ConnectionString to our hair_salon_test database, which overrides the DBConfiguration.ConnectionString we set in Startup.cs.
 
 SQLCMD -S "(localdb)\mssqllocaldb" -d hair_style
 

@@ -55,9 +55,15 @@ namespace HairSalon
         bool nameEquality = (this.GetName() == newClient.GetName());
         bool phoneNumberEquality = (this.GetPhoneNumber() == newClient.GetPhoneNumber());
         //add StylistId
-        return (idEquality, nameEquality && phoneNumberEquality); //StylistId);
+        return (idEquality && nameEquality && phoneNumberEquality); //StylistId);
       }
     }
+    //GetHashCode
+    public override int GetHashCode()
+    {
+      return this.GetName.GetPhoneNumber.GetHashCode()
+    }
+
     //GetAll
     public static List<Client> GetAll()
     {

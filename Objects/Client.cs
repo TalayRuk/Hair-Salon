@@ -21,7 +21,7 @@ namespace HairSalon
     //Getter
     public string GetName()
     {
-      return _Name;
+      return _name;
     }
     public int GetPhoneNumber()
     {
@@ -34,13 +34,30 @@ namespace HairSalon
     //Setter
     public void SetName(string newName)
     {
-      _Name = newName;
+      _name = newName;
     }
     public void SetPhoneNumber(int newPhoneNumber)
     {
       _phoneNumber = newPhoneNumber;
     }
-
+    //add stylelist setter?
+    //Override
+    public override bool Equals(System.Object otherClient)
+    {
+      if(!(otherClient is Client))
+      {
+        return false;
+      }
+      else
+      {
+        Client newClient = (Client) otherClient;
+        bool idEquality = (this.GetId() == newClient.GetId());
+        bool nameEquality = (this.GetName() == newClient.GetName());
+        bool phoneNumberEquality = (this.GetPhoneNumber() == newClient.GetPhoneNumber());
+        //add StylistId
+        return (idEquality, nameEquality && phoneNumberEquality); //StylistId);
+      }
+    }
     //GetAll
     public static List<Client> GetAll()
     {

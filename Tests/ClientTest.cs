@@ -18,6 +18,7 @@ namespace HairSalon
     {
       //Arrange, Act
       int result = Client.GetAll().Count;
+
       //Assert
       Assert.Equal(0, result);
     }
@@ -27,7 +28,10 @@ namespace HairSalon
     {
       //Arrange, Act
       Client client1 = new Client("Joe Lee", 2061234567);
-      Client client2
+      Client client2 = new Client("Mary Sue", 2065551111);
+
+      //Assert
+      Assert.Equal(client1, client2);
     }
 
 

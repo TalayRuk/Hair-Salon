@@ -65,6 +65,20 @@ namespace HairSalon
       Assert.Equal(testId, resultId);
     }
 
+    [Fact]
+    public void T5_DoesFindWorks()
+    {
+      //Arrange
+      Client testClient = new Client("Joe Lee", 2061234567);
+      testClient.Save();
+
+      //Act
+      Client resultFound = Client.Find(testClient.GetId());
+
+      //Assert
+      Assert.Equal(testClient, resultFound);
+    }
+
 
     public void Dispose()
     {

@@ -28,7 +28,7 @@ namespace HairSalon
     {
       //Arrange, Act
       Client client1 = new Client("Joe Lee", 2061234567);
-      Client client2 = new Client("Mary Sue", 2065551111);
+      Client client2 = new Client("Joe Lee", 2061234567);
 
       //Assert
       Assert.Equal(client1, client2);

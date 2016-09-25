@@ -7,18 +7,22 @@ namespace HairSalon
 {
   public class Client
   {
+    private int _id;
     private string _name;
     private int _phoneNumber;
-    private int _id;
     //add StylistId
     //add constructor
     public Client(string name, int phoneNumber, int id =0)
     {
+      _id = id;
       _name = name;
       _phoneNumber = phoneNumber;
-      _id = id;
     }
     //Getter
+    public int GetId()
+    {
+      return _id;
+    }
     public string GetName()
     {
       return _name;
@@ -26,10 +30,6 @@ namespace HairSalon
     public int GetPhoneNumber()
     {
       return _phoneNumber;
-    }
-    public int GetId()
-    {
-      return _id;
     }
     //Setter
     public void SetName(string newName)
@@ -44,7 +44,7 @@ namespace HairSalon
     //Override
     public override bool Equals(System.Object otherClient)
     {
-      if(!(otherClient is Client))
+      if (!(otherClient is Client))
       {
         return false;
       }
@@ -57,11 +57,6 @@ namespace HairSalon
         //add StylistId
         return (idEquality && nameEquality && phoneNumberEquality); //StylistId);
       }
-    }
-    //GetHashCode
-    public override int GetHashCode()
-    {
-      return this.GetName.GetPhoneNumber.GetHashCode()
     }
 
     //GetAll
@@ -109,5 +104,10 @@ namespace HairSalon
       conn.Close();
     }
 
+    //GetHashCode
+    public override int GetHashCode()
+    {
+      return this.GetName().GetHashCode();
+    }
   }
 }

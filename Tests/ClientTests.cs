@@ -7,7 +7,7 @@ using HairSalon;
 
 namespace HairSalon
 {
-  public ClientTests //: IDisposable
+  public ClientTests : IDisposable
   {
     public ClientTests() //this method name & class name need to match!
     {
@@ -22,10 +22,11 @@ namespace HairSalon
       //Assert
       Assert.Equal(0, result);
     }
+
     //Dispose() add once write Delete()
-    //public void Dispose()
-    // {
-    //   Client.DeleteAll();
-    // }
+    public void Dispose()
+    {
+      Client.DeleteAll();
+    }
   }
 }

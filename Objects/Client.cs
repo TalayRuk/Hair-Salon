@@ -51,6 +51,40 @@ namespace HairSalon
       _phoneNumber = newPhoneNumber;
     }
 
+    //GetAll
+    public static List<Client> GetAll()
+    {
+      List<Client> allClients = new List<Client>{};
+
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients;", conn);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      while(rdr.Read())
+      {
+        int clientId = rdr.GetInt32(0);
+        string clientFirstName = rdr.GetString(1);
+        string clientLastName = rdr.GetString(2);
+        int clientPhone = rdr.GetInt32(3);
+
+        Client newClient = new Client(clientFirstName, clientLastName, clientPhone, clientId);
+        allClients.Add(newClient);
+      }
+
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+
+      return allClients;
+    }
+
 
     //DeleteAll
     public static void DeleteAll()

@@ -45,9 +45,9 @@ namespace HairSalon
       Client result = Client.GetAll()[0];
 
       //Assert
-      Assert.Equal(newClient, result)
+      Assert.Equal(newClient, result);
     }
-    
+
 
     public void Dispose()
     {

@@ -37,7 +37,7 @@ namespace HairSalon
     [Fact]
     public void T3_DoesSaveWork()
     {
-      //Arrang
+      //Arrange
       Client newClient = new Client("Joe Lee", 2061234567);
 
       //Act
@@ -46,6 +46,23 @@ namespace HairSalon
 
       //Assert
       Assert.Equal(newClient, result);
+    }
+
+    [Fact]
+    public void T4_DoesSaveIdToClient()
+    {
+      //Arrange
+      Client testClient = new Client("Joe Lee", 2061234567);
+      testClient.Save();
+
+      //Act
+      Client savedClient = Client.GetAll()[0];
+
+      int testId = testClient.GetId();
+      int resultId = savedClient.GetId();
+
+      //Assert
+      Assert.Equal(testId, resultId);
     }
 
 

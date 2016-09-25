@@ -7,27 +7,21 @@ namespace HairSalon
 {
   public class Client
   {
-    private string _firstName;
-    private string _lastName;
+    private string _name;
     private int _phoneNumber;
     private int _id;
     //add StylistId
     //add constructor
-    public Client(string firstName, string lastName, int phoneNumber, int id =0)
+    public Client(string name, int phoneNumber, int id =0)
     {
-      _firstName = firstName;
-      _lastName = lastName;
+      _name = name;
       _phoneNumber = phoneNumber;
       _id = id;
     }
     //Getter
-    public string GetFirstName()
+    public string GetName()
     {
-      return _firstName;
-    }
-    public string GetLastName()
-    {
-      return _lastName;
+      return _Name;
     }
     public int GetPhoneNumber()
     {
@@ -38,13 +32,9 @@ namespace HairSalon
       return _id;
     }
     //Setter
-    public void SetFirstName(string newFirstName)
+    public void SetName(string newName)
     {
-      _firstName = newFirstName;
-    }
-    public void SetLastName(string newLastName)
-    {
-      _lastName = newLastName;
+      _Name = newName;
     }
     public void SetPhoneNumber(int newPhoneNumber)
     {
@@ -65,11 +55,10 @@ namespace HairSalon
       while(rdr.Read())
       {
         int clientId = rdr.GetInt32(0);
-        string clientFirstName = rdr.GetString(1);
-        string clientLastName = rdr.GetString(2);
-        int clientPhone = rdr.GetInt32(3);
+        string clientName = rdr.GetString(1);
+        int clientPhone = rdr.GetInt32(2);
 
-        Client newClient = new Client(clientFirstName, clientLastName, clientPhone, clientId);
+        Client newClient = new Client(clientName, clientPhone, clientId);
         allClients.Add(newClient);
       }
 

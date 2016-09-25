@@ -5,10 +5,11 @@ using System.Data.SqlClient;
 
 namespace HairSalon
 {
-  public class ClientTests
+  public class Client
   {
     private string _firstName;
     private string _lastName;
+    private int _phoneNumber;
     private int _id;
     //add StylistId
     //add constructor
@@ -20,32 +21,32 @@ namespace HairSalon
       _id = id;
     }
     //Getter
-    public string GetFirstName();
+    public string GetFirstName()
     {
       return _firstName;
     }
-    public string GetLastName();
+    public string GetLastName()
     {
       return _lastName;
     }
-    public int GetPhoneNumber();
+    public int GetPhoneNumber()
     {
       return _phoneNumber;
     }
-    public int GetId();
+    public int GetId()
     {
-      return _id:
+      return _id;
     }
     //Setter
-    public void SetFirstName(string newFirstName);
+    public void SetFirstName(string newFirstName)
     {
       _firstName = newFirstName;
     }
-    public void SetLastName(string newLastName);
+    public void SetLastName(string newLastName)
     {
       _lastName = newLastName;
     }
-    public void SetPhoneNumber(int newPhoneNumber);
+    public void SetPhoneNumber(int newPhoneNumber)
     {
       _phoneNumber = newPhoneNumber;
     }

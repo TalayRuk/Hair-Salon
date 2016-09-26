@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../content/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Edit Stylist</title>
+  </head>
+  <body class="jumbotron">
+    <h1>Stylist and Clients' List</h1>
+    <hr/>
+    <h2>Are you sure you want to delete this stylist and all of the clients?</h2>
+    <h4>@Model.GetName()</h4>
+    <form action="stylist/delete/@Model.GetId()" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit" class="button btn-lg">DELETE</button>
+    </form>
+    <h4><a href="/">Return to Homepage</a></h4>
+  </body>
+</html>

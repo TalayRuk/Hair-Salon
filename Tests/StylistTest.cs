@@ -14,10 +14,10 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T1_GetAll_IsDatabaseEmpty()
+    public void T1_GetAll_IsStylistDatabaseEmpty()
     {
       //Arrange, Act
-      int result = Client.GetAll().Count;
+      int result = Stylist.GetAll().Count;
 
       //Assert
       Assert.Equal(0, result);
@@ -27,78 +27,79 @@ namespace HairSalon
     public void T2_Equal_ReturnsTrueIfPropretiesAreSame()
     {
       //Arrange, Act
-      Client clientOne = new Client("Joe Lee", 2061234567, 1);
-      Client clientTwo = new Client("Joe Lee", 2061234567, 1);
+      Stylist stylistOne = new Stylist("Amy Zee", 2061234567, 1);
+      Stylist stylistTwo = new Stylist("Amy Zee", 2061234567, 1);
 
       //Assert
-      Assert.Equal(clientOne, clientTwo);
+      Assert.Equal(stylistOne, stylistTwo);
     }
 
     [Fact]
-    public void T3_Save_DoesSaveWork()
+    public void T3_Save_DoesStylistSaveWork()
     {
       //Arrange
-      Client newClient = new Client("Joe Lee", 2061234567, 1);
+      Stylist newStylist = new Stylist("Amy Zee", 2061234567, 1);
 
       //Act
-      newClient.Save();
-      Client result = Client.GetAll()[0];
+      newStylist.Save();
+      Stylist result = Stylist.GetAll()[0];
 
       //Assert
-      Assert.Equal(newClient, result);
+      Assert.Equal(newStylist, result);
     }
 
     [Fact]
-    public void T4_Save_GetId_DoesSaveIdToClient()
+    public void T4_Save_GetId_DoesSaveIdToStylist()
     {
       //Arrange
-      Client testClient = new Client("Joe Lee", 2061234567, 1);
-      testClient.Save();
+      Stylist testStylist = new Stylist("Amy Zee", 2061234567, 1);
+      testStylist.Save();
 
       //Act
-      Client savedClient = Client.GetAll()[0];
+      Stylist savedStylist = Stylist.GetAll()[0];
 
-      int testId = testClient.GetId();
-      int resultId = savedClient.GetId();
+      int testId = testStylist.GetId();
+      int resultId = savedStylist.GetId();
 
       //Assert
       Assert.Equal(testId, resultId);
     }
 
     [Fact]
-    public void T5_Find_DoesFindWork()
+    public void T5_Find_DoesFindStylistWork()
     {
       //Arrange
-      Client testClient = new Client("Joe Lee", 2061234567, 1);
-      testClient.Save();
+      Stylist testStylist = new Stylist("Amy Zee", 2061234567, 1);
+      testStylist.Save();
 
       //Act
-      Client foundClient = Client.Find(testClient.GetId());
+      Stylist foundStylist = Stylist.Find(testStylist.GetId());
 
       //Assert
-      Assert.Equal(testClient, foundClient);
+      Assert.Equal(testStylist, foundStylist);
     }
 
-    [Fact]
-    public void T6_DeleteOne()
-    {
-      //Arrange
-      Client clientOne = new Client("Joe Lee", 2061234567, 1);
-      Client clientTwo = new Client("Col Day", 2061231111, 1);
-      clientOne.Save();
-      clientTwo.Save();
-
-      //Act
-      clientOne.DeleteOne();
-      List<Client> result = Client.GetAll();
-
-      //Assert
-      Assert.Equal(1, result.Count);
-    }
+    // [Fact]
+    // public void T6_DeleteOne()
+    // {
+    //   //Arrange
+    //   Stylist stylistOne = new Stylist("Amy Zee", 2061234567, 1);
+    //   Stylist stylistTwo = new Stylist("Lila Ray", 2061231111, 1);
+    //   stylistOne.Save();
+    //   stylistTwo.Save();
+    //
+    //   //Act
+    //   stylistOne.DeleteOne();
+    //   List<Stylist> result = Stylist.GetAll();
+    //
+    //   //Assert
+    //   Assert.Equal(1, result.Count);
+    // }
 
     public void Dispose()
     {
       Client.DeleteAll();
+      Stylist.DeleteAll();
     }
   }
 }

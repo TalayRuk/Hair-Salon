@@ -20,8 +20,10 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 |DeleteAll() clear out all rows in database | 2 client instances | none
 |Find() return specific row from database | Joe | found Joe
 |DeleteOne() clear 1 specific row in database | Joe | none
-|*One-to-many relationship set up
-|Test Stylist **Spec 
+|*One-to-many relationship set up = add stylist_id
+|Test Stylist **Spec
+|add Test spec for GetClients() in ClientTest.cs
+|add GetClients() in Stylist.cs
 |*CRUD functionality for each class been built in Nancy
 |*RESTful routes used in Nancy
 
@@ -70,4 +72,3 @@ C#, Nancy, Razor, Xunit, Database and cshtml.
 Copyright (c) 2016 **_Vichitra Pool_**
 
 This software is licensed under the MIT license.
-

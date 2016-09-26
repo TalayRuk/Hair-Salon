@@ -7,16 +7,17 @@ namespace HairSalon
 {
   public class Client
   {
+    private int _id;
     private string _name;
     private int _phone;
-    private int _id;
-    //add StylistId
+    private int _stylistId;
     //add constructor
-    public Client(string name, int phone, int id =0)
+    public Client(string name, int phone, int StylistId, int id =0)
     {
+      _id = id;
       _name = name;
       _phone = phone;
-      _id = id;
+      _stylistId = stylistId;
     }
     //Getter
     public int GetId()
@@ -31,6 +32,10 @@ namespace HairSalon
     {
       return _phone;
     }
+    public int GetStylistId()
+    {
+      return _stylistId;
+    }
     //Setter
     public void SetName(string newName)
     {
@@ -41,6 +46,10 @@ namespace HairSalon
       _phone = newPhone;
     }
     //add stylelist setter?
+    public void SetStylistId(int newStylistId)
+    {
+      _stylistId = newStylistId;
+    }
     //Override
     public override bool Equals(System.Object otherClient)
     {
@@ -54,8 +63,9 @@ namespace HairSalon
         bool idEquality = (this.GetId() == newClient.GetId());
         bool nameEquality = (this.GetName() == newClient.GetName());
         bool phoneEquality = (this.GetPhone() == newClient.GetPhone());
-        //add StylistId
-        return (idEquality && nameEquality && phoneEquality); //StylistId);
+        //add stylistEquality
+        bool stylistEquality = (this.GetStylistId() == newClient.GetStylistId());
+        return (idEquality && nameEquality && phoneEquality && stylistEquality); //stylistEquality);
       }
     }
 
@@ -75,8 +85,9 @@ namespace HairSalon
         int clientId = rdr.GetInt32(0);
         string clientName = rdr.GetString(1);
         int clientPhone = rdr.GetInt32(2);
-
-        Client newClient = new Client(clientName, clientPhone, clientId);
+        //add clientStylistId
+        int clientStylistId = rdr.GetInt32(3);
+        Client newClient = new Client(clientName, clientPhone, clientStylistId, clientId);
         allClients.Add(newClient);
       }
 
@@ -97,8 +108,8 @@ namespace HairSalon
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-
-      SqlCommand cmd = new SqlCommand("INSERT INTO clients (first_last_name, phone_number) OUTPUT INSERTED.id VALUES (@ClientName, @ClientPhone);", conn);
+      //add stylist_id & @ClientStylistId
+      SqlCommand cmd = new SqlCommand("INSERT INTO clients (first_last_name, phone_number, stylist_id) OUTPUT INSERTED.id VALUES (@ClientName, @ClientPhone, @ClientStylistId);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
       nameParameter.ParameterName = "@ClientName";
@@ -107,9 +118,16 @@ namespace HairSalon
       SqlParameter phoneParameter = new SqlParameter();
       phoneParameter.ParameterName = "@ClientPhone";
       phoneParameter.Value = this.GetPhone();
+      //add ClientStylistId
+      SqlParameter stylistIdParameter = new SqlParameter();
+      stylistIdParameter.ParameterName = "@ClientStylistId";
+      stylistIdParameter.Value = this.GetStylistId();
 
       cmd.Parameters.Add(nameParameter);
       cmd.Parameters.Add(phoneParameter);
+      //add stylistId
+      cmd.Parameters.Add(stylistIdParameter);
+
       SqlDataReader rdr = cmd.ExecuteReader();
 
       while (rdr.Read())
@@ -144,15 +162,17 @@ namespace HairSalon
       int foundClientId = 0;
       string foundClientName = null;
       int foundClientPhone = 0;
-      //int foundClientStylistId = 0;
+      int foundClientStylistId = 0;
+
 
       while (rdr.Read())
       {
         foundClientId = rdr.GetInt32(0);
         foundClientName = rdr.GetString(1);
         foundClientPhone = rdr.GetInt32(2);
+        foundClientStylistId = rdr.GetInt32(3);
       }
-      Client foundClient = new Client(foundClientName, foundClientPhone, foundClientId); //,foundClientStylistId
+      Client foundClient = new Client(foundClientName, foundClientPhone, foundClientStylistId, foundClientId); //,foundClientStylistId
 
       if (rdr != null)
       {

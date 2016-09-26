@@ -12,7 +12,7 @@ namespace HairSalon
     private int _phone;
     private int _stylistId;
     //add constructor
-    public Client(string name, int phone, int StylistId, int id =0)
+    public Client(string name, int phone, int stylistId, int id =0)
     {
       _id = id;
       _name = name;

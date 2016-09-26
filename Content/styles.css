@@ -1,3 +1,4 @@
 .index {
-  background-image: url("/img/hair_salon.jpg");
+  background-image: url("img/hair_salon.jpg");
+  background-repeat: no-repeat;
 }

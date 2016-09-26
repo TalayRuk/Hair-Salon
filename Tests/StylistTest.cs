@@ -80,20 +80,20 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T6_GetClients_RetrievesAllClientsW/Stylist()
+    public void T6_GetClients_RetrievesAllClientsWithStylist()
     {
       //Arrange
       Stylist testStylist = new Stylist("Amy Zee");
       testStylist.Save();
 
       //Act
-      Client clientOne = new Client("Joe Lee");
-      Client clientTwo = new Client("Col Day");
+      Client clientOne = new Client("Joe Lee", 2061234567, testStylist.GetId());
+      Client clientTwo = new Client("Col Day", 2061231111, testStylist.GetId());
       clientOne.Save();
       clientTwo.Save();
 
       List<Client> testClientList = new List<Client> {clientOne, clientTwo};
-      List<Client> resultClientList = ClientStylist.GetClients();
+      List<Client> resultClientList = testStylist.GetClients();
 
       //Assert
       Assert.Equal(testClientList, resultClientList);

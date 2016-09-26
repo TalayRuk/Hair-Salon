@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace HairSalon
 {
@@ -119,7 +119,7 @@ namespace HairSalon
 
       SqlCommand cmd = new SqlCommand("SELECT * FROM stylists WHERE id = @StylistId;", conn);
 
-      SqlParameter StylistIdParameter = new SqlParameter();
+      SqlParameter stylistIdParameter = new SqlParameter();
       stylistIdParameter.ParameterName = "@StylistId";
       stylistIdParameter.Value = id.ToString();
       cmd.Parameters.Add(stylistIdParameter);
@@ -160,7 +160,7 @@ namespace HairSalon
       stylistIdParameter.Value = this.GetId();
 
       cmd.Parameters.Add(stylistIdParameter);
-      cmd.ExecuteReader();
+      SqlDataReader rdr = cmd.ExecuteReader();
 
       List<Client> clients = new List<Client> {};
       while(rdr.Read())
@@ -171,6 +171,7 @@ namespace HairSalon
         int clientStylistId = rdr.GetInt32(3);
 
         Client newClient = new Client(clientName, clientPhone, clientStylistId, clientId);
+        clients.Add(newClient);
       }
       if (rdr != null)
       {

@@ -7,16 +7,16 @@ namespace HairSalon
 {
   public class Client
   {
-    private int _id;
     private string _name;
-    private int _phoneNumber;
+    private int _phone;
+    private int _id;
     //add StylistId
     //add constructor
-    public Client(string name, int phoneNumber, int id =0)
+    public Client(string name, int phone, int id =0)
     {
-      _id = id;
       _name = name;
-      _phoneNumber = phoneNumber;
+      _phone = phone;
+      _id = id;
     }
     //Getter
     public int GetId()
@@ -27,18 +27,18 @@ namespace HairSalon
     {
       return _name;
     }
-    public int GetPhoneNumber()
+    public int GetPhone()
     {
-      return _phoneNumber;
+      return _phone;
     }
     //Setter
     public void SetName(string newName)
     {
       _name = newName;
     }
-    public void SetPhoneNumber(int newPhoneNumber)
+    public void SetPhone(int newPhone)
     {
-      _phoneNumber = newPhoneNumber;
+      _phone = newPhone;
     }
     //add stylelist setter?
     //Override
@@ -53,9 +53,9 @@ namespace HairSalon
         Client newClient = (Client) otherClient;
         bool idEquality = (this.GetId() == newClient.GetId());
         bool nameEquality = (this.GetName() == newClient.GetName());
-        bool phoneNumberEquality = (this.GetPhoneNumber() == newClient.GetPhoneNumber());
+        bool phoneEquality = (this.GetPhone() == newClient.GetPhone());
         //add StylistId
-        return (idEquality && nameEquality && phoneNumberEquality); //StylistId);
+        return (idEquality && nameEquality && phoneEquality); //StylistId);
       }
     }
 
@@ -106,7 +106,7 @@ namespace HairSalon
 
       SqlParameter phoneParameter = new SqlParameter();
       phoneParameter.ParameterName = "@ClientPhone";
-      phoneParameter.Value = this.GetPhoneNumber();
+      phoneParameter.Value = this.GetPhone();
 
       cmd.Parameters.Add(nameParameter);
       cmd.Parameters.Add(phoneParameter);
@@ -134,11 +134,11 @@ namespace HairSalon
 
       SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId);", conn);
 
-      SqlParameter clientParameter = new SqlParameter();
-      clientParameter.ParameterName = "@ClientId";
-      clientParameter.Value = id.ToString();
+      SqlParameter clientIdParameter = new SqlParameter();
+      clientIdParameter.ParameterName = "@ClientId";
+      clientIdParameter.Value = id.ToString();
 
-      cmd.Parameters.Add(clientParameter);
+      cmd.Parameters.Add(clientIdParameter);
       SqlDataReader rdr = cmd.ExecuteReader();
 
       int foundClientId = 0;
@@ -148,13 +148,13 @@ namespace HairSalon
 
       while (rdr.Read())
       {
-        foundClientId = rdr.GetInt32(0);
-        foundClientName = rdr.GetString(1);
-        foundClientPhone = rdr.GetInt32(2);
+        int foundClientId = rdr.GetInt32(0);
+        string foundClientName = rdr.GetString(1);
+        int foundClientPhone = rdr.GetInt32(2);
       }
 
-      Client foundClient = new Client(foundClientId, foundClientName, foundClientPhone); //,foundClientStylistId)
-      
+      Client foundClient = new Client(foundClientName, foundClientPhone, foundClientId); //,foundClientStylistId)
+
       if (rdr != null)
       {
         rdr.Close();

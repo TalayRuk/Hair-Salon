@@ -69,14 +69,14 @@ namespace HairSalon
     public void T5_DoesFindWorks()
     {
       //Arrange
-      Client testClient = new Client("Joe Lee", 2061234567);
-      testClient.Save();
+      Client foundClient = new Client("Joe Lee", 2061234567);
+      foundClient.Save();
 
       //Act
-      Client resultFound = Client.Find(testClient.GetId());
+      Client resultFound = Client.Find(foundClient.GetId());
 
       //Assert
-      Assert.Equal(testClient, resultFound);
+      Assert.Equal(foundClient, resultFound);
     }
 
 

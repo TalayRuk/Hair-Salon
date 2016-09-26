@@ -132,7 +132,7 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId);", conn);
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId;", conn);
 
       SqlParameter clientIdParameter = new SqlParameter();
       clientIdParameter.ParameterName = "@ClientId";
@@ -148,12 +148,11 @@ namespace HairSalon
 
       while (rdr.Read())
       {
-        int foundClientId = rdr.GetInt32(0);
-        string foundClientName = rdr.GetString(1);
-        int foundClientPhone = rdr.GetInt32(2);
+        foundClientId = rdr.GetInt32(0);
+        foundClientName = rdr.GetString(1);
+        foundClientPhone = rdr.GetInt32(2);
       }
-
-      Client foundClient = new Client(foundClientName, foundClientPhone, foundClientId); //,foundClientStylistId)
+      Client foundClient = new Client(foundClientName, foundClientPhone, foundClientId); //,foundClientStylistId
 
       if (rdr != null)
       {
@@ -163,6 +162,8 @@ namespace HairSalon
       {
         conn.Close();
       }
+      //when there's no return foundClient ..error cs0161 occur
+      return foundClient;
     }
 
     //DeleteAll

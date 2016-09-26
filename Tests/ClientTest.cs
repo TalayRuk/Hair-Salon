@@ -14,7 +14,7 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T1_IsDatabaseEmpty()
+    public void T1_GetAll_IsDatabaseEmpty()
     {
       //Arrange, Act
       int result = Client.GetAll().Count;
@@ -35,7 +35,7 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T3_DoesSaveWork()
+    public void T3_Save_DoesSaveWork()
     {
       //Arrange
       Client newClient = new Client("Joe Lee", 2061234567);
@@ -49,7 +49,7 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T4_DoesSaveIdToClient()
+    public void T4_Save_GetId_DoesSaveIdToClient()
     {
       //Arrange
       Client testClient = new Client("Joe Lee", 2061234567);
@@ -66,17 +66,17 @@ namespace HairSalon
     }
 
     [Fact]
-    public void T5_DoesFindWorks()
+    public void T5_Find_DoesFindWork()
     {
       //Arrange
-      Client foundClient = new Client("Joe Lee", 2061234567);
-      foundClient.Save();
+      Client testClient = new Client("Joe Lee", 2061234567);
+      testClient.Save();
 
       //Act
-      Client resultFound = Client.Find(foundClient.GetId());
+      Client foundClient = Client.Find(testClient.GetId());
 
       //Assert
-      Assert.Equal(foundClient, resultFound);
+      Assert.Equal(testClient, foundClient);
     }
 
 

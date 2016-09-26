@@ -7,8 +7,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>Stylist</title>
   </head>
-  <body class="deleteAll">
-    <h1>All clients have been deleted</h1>
+  <body class="stylist">
+    <h1>Here are all the stylist's clients: </h1>
+    @if (@Model["clients"].Count == 0)
+    {
+      <h4>No Clients have been added yet!</h4>
+    }
+    else
+    {
+      <ol>
+        @foreach (var client in @Model["clients"])
+        {
+          <li>@client.GetName.GetPhone()</li>
+        }
+      </ol>
+    }
+    <h4><a href="/clients/new">Add new Client</a></h4>
     <br>
     <h4><a href="/">Return to Homepage</a></h4>
   </body>

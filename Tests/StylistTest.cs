@@ -27,8 +27,8 @@ namespace HairSalon
     public void T2_Equal_ReturnsTrueIfPropretiesAreSame()
     {
       //Arrange, Act
-      Stylist stylistOne = new Stylist("Amy Zee", 2061234567, 1);
-      Stylist stylistTwo = new Stylist("Amy Zee", 2061234567, 1);
+      Stylist stylistOne = new Stylist("Amy Zee");
+      Stylist stylistTwo = new Stylist("Amy Zee");
 
       //Assert
       Assert.Equal(stylistOne, stylistTwo);
@@ -38,7 +38,7 @@ namespace HairSalon
     public void T3_Save_DoesStylistSaveWork()
     {
       //Arrange
-      Stylist newStylist = new Stylist("Amy Zee", 2061234567, 1);
+      Stylist newStylist = new Stylist("Amy Zee");
 
       //Act
       newStylist.Save();
@@ -52,7 +52,7 @@ namespace HairSalon
     public void T4_Save_GetId_DoesSaveIdToStylist()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Amy Zee", 2061234567, 1);
+      Stylist testStylist = new Stylist("Amy Zee");
       testStylist.Save();
 
       //Act
@@ -69,7 +69,7 @@ namespace HairSalon
     public void T5_Find_DoesFindStylistWork()
     {
       //Arrange
-      Stylist testStylist = new Stylist("Amy Zee", 2061234567, 1);
+      Stylist testStylist = new Stylist("Amy Zee");
       testStylist.Save();
 
       //Act
@@ -79,12 +79,31 @@ namespace HairSalon
       Assert.Equal(testStylist, foundStylist);
     }
 
+    [Fact]
+    public void T6_GetClients_RetrievesAllClientsW/Stylist()
+    {
+      //Arrange
+      Stylist testStylist = new Stylist("Amy Zee");
+      testStylist.Save();
+
+      //Act
+      Client clientOne = new Client("Joe Lee");
+      Client clientTwo = new Client("Col Day");
+      clientOne.Save();
+      clientTwo.Save();
+
+      List<Client> testClientList = new List<Client> {clientOne, clientTwo};
+      List<Client> resultClientList = ClientStylist.GetClients();
+
+      //Assert
+      Assert.Equal(testClientList, resultClientList);
+    }
     // [Fact]
     // public void T6_DeleteOne()
     // {
     //   //Arrange
-    //   Stylist stylistOne = new Stylist("Amy Zee", 2061234567, 1);
-    //   Stylist stylistTwo = new Stylist("Lila Ray", 2061231111, 1);
+    //   Stylist stylistOne = new Stylist("Amy Zee");
+    //   Stylist stylistTwo = new Stylist("Lila Ray");
     //   stylistOne.Save();
     //   stylistTwo.Save();
     //

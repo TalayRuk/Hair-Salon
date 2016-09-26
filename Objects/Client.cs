@@ -195,7 +195,7 @@ namespace HairSalon
 
       if (conn != null)
       {
-        coon.Close();
+        conn.Close();
       }
     }
 

@@ -19,7 +19,6 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 |Save() return input save to the list | new client instance | list containing new client
 |DeleteAll() clear out all rows in database | 2 client instances | none
 |Find() return specific row from database | Joe | found Joe
-|DeleteOne() clear 1 specific row in database | Joe | none
 |*One-to-many relationship set up = add stylist_id
 |Test Stylist **Spec
 |add Test spec for GetClients() in ClientTest.cs
@@ -27,7 +26,9 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 |HomeModule.cs : add RESTful Route
 |Test Update()
 |add Update()
-|HomeModule add edit route 
+|HomeModule add edit/Patch route
+|Delete()
+|add Delete route 
 |*CRUD functionality for each class been built in Nancy
 |*RESTful routes used in Nancy
 

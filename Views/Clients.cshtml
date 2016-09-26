@@ -18,9 +18,10 @@
     {
       <h1>Here is the list of clients:  </h1>
       <ul>
-        @forEach (var client in Model)
+        @foreach (var client in Model)
         {
-          <li>@client.GetName.GetPhone()</li>
+          <li>@client.GetName()</li>
+          <li>@client.GetPhone()</li>
         }
       </ul>
       <form action="/clients/delete" method="post">

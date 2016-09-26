@@ -23,7 +23,7 @@ namespace HairSalon
 
       Get["/stylists"] = _ => {
         List<Stylist> AllStylists = Stylist.GetAll();
-        return View["stylist.cshtml", AllStylists];
+        return View["stylists.cshtml", AllStylists];
       };
 
       Get["/stylists/new"] = _ => {
@@ -53,7 +53,7 @@ namespace HairSalon
       };
 
       Get["/stylists/{id}"] = parameters => {
-        Dictionary,string, object> model = new Dictionary<string, object>();
+        Dictionary<string, object> model = new Dictionary<string, object>();
         var SelectedStylist = Stylist.Find(parameters.id);
         var StylistClients = SelectedStylist.GetClients();
         model.Add("stylist", SelectedStylist);

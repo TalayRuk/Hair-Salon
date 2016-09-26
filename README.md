@@ -25,6 +25,9 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 |add Test spec for GetClients() in ClientTest.cs
 |add GetClients() in Stylist.cs
 |HomeModule.cs : add RESTful Route
+|Test Update()
+|add Update()
+|HomeModule add edit route 
 |*CRUD functionality for each class been built in Nancy
 |*RESTful routes used in Nancy
 

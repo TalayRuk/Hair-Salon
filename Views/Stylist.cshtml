@@ -15,12 +15,15 @@
         Sorry, there are no stylists available at this time.
       </p>
     }
+    else
+    {
     <ul>
       @foreach (var stylist in Model)
       {
         <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
       }
     </ul>
+    }
     <a href="/stylists/new">Add new Stylist</a>
 
   </body>

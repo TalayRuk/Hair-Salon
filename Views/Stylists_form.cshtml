@@ -7,7 +7,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>Add stylist</title>
   </head>
-  <body>
+  <body class="stylistF">
+    <h1>Add Stylist</h1>
+    <form action="/stylists/new" method="post">
+      <label for="stylist-name">Stylist Name: </label>
+      <input id="stylist-name" name="stylist-name" type="text">
+      <button type="submit" class="button btn-lg">Add Stylist</button>
+    </form>
 
   </body>
 </html>

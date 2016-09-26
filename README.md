@@ -24,7 +24,7 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 |Test Stylist **Spec
 |add Test spec for GetClients() in ClientTest.cs
 |add GetClients() in Stylist.cs
-|HomeModule.cs : add RESTful Route 
+|HomeModule.cs : add RESTful Route
 |*CRUD functionality for each class been built in Nancy
 |*RESTful routes used in Nancy
 
@@ -48,9 +48,9 @@ _The owner can add to a list of the stylists, and for each stylist, add clients 
 
 \>GO
 
-\>CREATE TABLE stylists (id INT IDENTITY (1,1), first_name VARCHAR(255), last_name VARCHAR(255), expertise VARCHAR(255));
+\>CREATE TABLE stylists (id INT IDENTITY (1,1), name VARCHAR(255));
 
-\>CREATE TABLE clients (id INT IDENTITY (1,1), first_name VARCHAR(255), last_name VARCHAR(255), stylist_id INT);
+\>CREATE TABLE clients (id INT IDENTITY (1,1), first_last_name VARCHAR(255), phone_number INT, stylist_id INT);
 
 \>GO
 

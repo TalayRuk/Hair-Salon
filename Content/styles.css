@@ -1,4 +1,6 @@
-.index {
+body {
   background-image: url("img/hair_salon.jpg");
   background-repeat: no-repeat;
+  text-align: center;
+  color: limegreen;
 }

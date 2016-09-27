@@ -42,7 +42,7 @@ namespace HairSalon
       };
 
       Post["/clients/new"] = _ => {
-        Client newClient = new Client(Request.Form["client-name"], Request.Form["client-phone"], Request.Form["stylist-id"]);
+        Client newClient = new Client(Request.Form["client-name"], Request.Form["stylist-id"]);
         newClient.Save();
         return View["success.cshtml"];
       };

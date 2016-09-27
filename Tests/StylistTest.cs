@@ -59,7 +59,9 @@ namespace HairSalon
       Stylist savedStylist = Stylist.GetAll()[0];
 
       int testId = testStylist.GetId();
+      Console.WriteLine(testId);
       int resultId = savedStylist.GetId();
+      Console.WriteLine(resultId);
 
       //Assert
       Assert.Equal(testId, resultId);

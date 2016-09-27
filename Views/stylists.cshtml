@@ -10,24 +10,22 @@
   <body class="jumbotron">
     <h1>All Stylists</h1>
     <hr />
-    <h2>Stylists: </h2>
-
+    @if (@Model.Count == 0)
+    {
+      <p>There are no Stylists.</p>
+    }
     <ul>
-      @if (@Model.Count != 0)
+      @foreach (var stylist in Model)
       {
-        @foreach (var stylist in Model)
-        {
-          <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a> | <a href="/stylist/edit/@stylist.GetId()">Edit</a> | <a href="/stylist/delete/@stylist.GetId">Delete</a></li>
-        }
+        <li><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></li>
       }
     </ul>
-    }
     <h4><a href="/stylists/new">Add new Stylist</a></h4>
     <br>
     <h4><a href="/">Return to Homepage</a></h4>
 
-    <form  action="/stylists/delete" method="post">
+    <!-- <form  action="/stylists/delete" method="post">
       <button type="submit" class="button btn-lg">Clear all Stylists</button>
-    </form>
+    </form> -->
   </body>
 </html>

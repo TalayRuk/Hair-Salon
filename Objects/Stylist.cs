@@ -162,16 +162,15 @@ namespace HairSalon
       cmd.Parameters.Add(stylistIdParameter);
       SqlDataReader rdr = cmd.ExecuteReader();
 
-      List<Client> clients = new List<Client> {};
+      List<Client> clientsList = new List<Client> {};
       while(rdr.Read())
       {
         int clientId = rdr.GetInt32(0);
         string clientName = rdr.GetString(1);
-        int clientPhone = rdr.GetInt32(2);
-        int clientStylistId = rdr.GetInt32(3);
+        int clientStylistId = rdr.GetInt32(2);
 
-        Client newClient = new Client(clientName, clientPhone, clientStylistId, clientId);
-        clients.Add(newClient);
+        Client newClient = new Client(clientName, clientStylistId, clientId);
+        clientsList.Add(newClient);
       }
       if (rdr != null)
       {
@@ -182,7 +181,7 @@ namespace HairSalon
         conn.Close();
       }
 
-      return clients;
+      return clientsList;
     }
 
     //Update

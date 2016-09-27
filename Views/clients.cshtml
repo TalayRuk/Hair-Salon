@@ -12,8 +12,6 @@ clients_form.html<!DOCTYPE html>
     <form action="/clients/new" method="post">
       <label for="client-name">Client Name: </label>
       <input id="client-name" name="client-name" type="text">
-      <label for="client-phone">Client Phone Number: </label>
-      <input id="client-phone" name="client-phone" type="number">
       <select name="stylist-id">
         @foreach (var stylist in Model)
         {

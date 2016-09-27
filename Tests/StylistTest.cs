@@ -87,8 +87,8 @@ namespace HairSalon
       testStylist.Save();
 
       //Act
-      Client clientOne = new Client("Joe Lee", 2061234567, testStylist.GetId());
-      Client clientTwo = new Client("Col Day", 2061231111, testStylist.GetId());
+      Client clientOne = new Client("Joe Lee", testStylist.GetId());
+      Client clientTwo = new Client("Col Day", testStylist.GetId());
       clientOne.Save();
       clientTwo.Save();
 
@@ -129,9 +129,9 @@ namespace HairSalon
       Stylist testStylist2 = new Stylist(name2);
       testStylist2.Save();
 
-      Client testClient1 = new Client("Mary Lee", 2061233333, testStylist1.GetId());
+      Client testClient1 = new Client("Mary Lee", testStylist1.GetId());
       testClient1.Save();
-      Client testClient2 = new Client("Dan Dan", 2061234567, testStylist2.GetId());
+      Client testClient2 = new Client("Dan Dan", testStylist2.GetId());
       testClient2.Save();
 
       //Act

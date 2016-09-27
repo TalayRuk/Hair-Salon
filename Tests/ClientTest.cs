@@ -27,8 +27,8 @@ namespace HairSalon
     public void T2_Equal_ReturnsTrueIfPropretiesAreSame()
     {
       //Arrange, Act
-      Client clientOne = new Client("Joe Lee", 2061234567, 1);
-      Client clientTwo = new Client("Joe Lee", 2061234567, 1);
+      Client clientOne = new Client("Joe Lee", 1);
+      Client clientTwo = new Client("Joe Lee", 1);
 
       //Assert
       Assert.Equal(clientOne, clientTwo);
@@ -38,7 +38,7 @@ namespace HairSalon
     public void T3_Save_DoesSaveWork()
     {
       //Arrange
-      Client newClient = new Client("Joe Lee", 2061234567, 1);
+      Client newClient = new Client("Joe Lee", 1);
 
       //Act
       newClient.Save();
@@ -52,7 +52,7 @@ namespace HairSalon
     public void T4_Save_GetId_DoesSaveIdToClient()
     {
       //Arrange
-      Client testClient = new Client("Joe Lee", 2061234567, 1);
+      Client testClient = new Client("Joe Lee", 1);
       testClient.Save();
 
       //Act
@@ -69,7 +69,7 @@ namespace HairSalon
     public void T5_Find_DoesFindWork()
     {
       //Arrange
-      Client testClient = new Client("Joe Lee", 2061234567, 1);
+      Client testClient = new Client("Joe Lee", 1);
       testClient.Save();
 
       //Act
@@ -87,8 +87,8 @@ namespace HairSalon
     // public void T6_DeleteOne()
     // {
     //   //Arrange
-    //   Client clientOne = new Client("Joe Lee", 2061234567, 1);
-    //   Client clientTwo = new Client("Col Day", 2061231111, 1);
+    //   Client clientOne = new Client("Joe Lee", 1);
+    //   Client clientTwo = new Client("Col Day", 1);
     //   clientOne.Save();
     //   clientTwo.Save();
     //

@@ -18,11 +18,11 @@
       <ol>
         @foreach (var client in @Model["clients"])
         {
-          <li>@client.GetName.GetPhone()</li>
+          <li>@client.GetName()</li>
         }
       </ol>
     }
-    <h4><a href="/clients/new">Add new Client</a></h4>
+    <h4><a href="/clients/new">Add a new Client</a></h4>
     <br>
     <h4><a href="/">Return to Homepage</a></h4>
   </body>

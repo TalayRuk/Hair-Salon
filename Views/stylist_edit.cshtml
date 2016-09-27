@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>Edit Stylist</title>
   </head>
-  <body class="jumbotron">
+  <body>
     <h1>Stylists</h1>
     <hr/>
     <h2>Edit Stylist: @Model.GetName()</h2>
     <form action="stylist/edit/@Model.GetId()" method="post">
       <input type="hidden" name="_method" value="PATCH">
-      <input type="hidden" name="stylist-id" value="@Model.GetId">
+      <input type="hidden" name="stylist-id" value="@Model.GetId()">
       <label for="stylist-name">Stylist Name: </label>
       <input type="text" name="stylist-name" id="stylist-name">
-      <button type="submit" class="button btn-lg">Edit</button>
+      <button type="submit" class="btn btn-lg">Edit</button>
     </form>
     <h4><a href="/">Return to Homepage</a></h4>
   </body>

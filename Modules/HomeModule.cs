@@ -38,7 +38,7 @@ namespace HairSalon
 
       Get["/clients/new"] = _ => {
         List<Stylist> AllStylists = Stylist.GetAll();
-        return View["clients_form.cshtml"];
+        return View["clients_form.cshtml", AllStylists];
       };
 
       Post["/clients/new"] = _ => {

@@ -36,6 +36,12 @@ namespace HairSalon
         return View["success.cshtml"];
       };
 
+      Post["/stylists/delete"] = _ => {
+        Stylist.DeleteAll();
+        return View["delete_all.cshtml"];
+      };
+
+
       Get["/clients/new"] = _ => {
         List<Stylist> AllStylists = Stylist.GetAll();
         return View["clients_form.cshtml", AllStylists];
@@ -47,10 +53,10 @@ namespace HairSalon
         return View["success.cshtml"];
       };
 
-      Post["/clients/delete"] = _ => {
-        Client.DeleteAll();
-        return View["delete_all.cshtml"];
-      };
+      // Post["/clients/delete"] = _ => {
+      //   Client.DeleteAll();
+      //   return View["delete_all.cshtml"];
+      // };
 
       Get["/stylists/{id}"] = parameters => {
         Dictionary<string, object> model = new Dictionary<string, object>();
@@ -72,7 +78,7 @@ namespace HairSalon
         return View["success.cshtml"];
       };
 
-      Get["stylist/delete/{id}"] = parameters => {
+      Get["/stylist/delete/{id}"] = parameters => {
         Stylist SelectedStylist = Stylist.Find(parameters.id);
         return View["stylist_delete.cshtml", SelectedStylist];
       };
@@ -80,7 +86,7 @@ namespace HairSalon
       Delete["stylist/delete/{id}"] = parameters => {
         Stylist SelectedStylist = Stylist.Find(parameters.id);
         SelectedStylist.Delete();
-        return View["success.cshtml"];
+        return View["delete_all.cshtml"];
       };
     }
   }

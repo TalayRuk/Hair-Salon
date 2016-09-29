@@ -12,7 +12,7 @@
     <hr/>
     <h2>Are you sure you want to delete this stylist and all of the clients?</h2>
     <h4>@Model.GetName()</h4>
-    <form action="stylist/delete/@Model.GetId()" method="post">
+    <form action="/stylist/delete/@Model.GetId()" method="post">
       <input type="hidden" name="_method" value="DELETE">
       <button type="submit" class="btn6 btn-lg">DELETE</button>
     </form>

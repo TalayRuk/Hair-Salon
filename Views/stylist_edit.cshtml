@@ -11,7 +11,7 @@
     <h1>Stylists</h1>
     <hr/>
     <h2>Edit Stylist: @Model.GetName()</h2>
-    <form action="stylist/edit/@Model.GetId()" method="post">
+    <form action="/stylist/edit/@Model.GetId()" method="post">
       <input type="hidden" name="_method" value="PATCH">
       <input type="hidden" name="stylist-id" value="@Model.GetId()">
       <label for="stylist-name">Stylist Name: </label>
